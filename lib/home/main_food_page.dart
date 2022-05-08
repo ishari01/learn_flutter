@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/home/food_page_body.dart';
 import 'package:learning_flutter/utils/colors.dart';
 import 'package:learning_flutter/widgets/big_text.dart';
 import 'package:learning_flutter/widgets/small_text.dart';
@@ -41,13 +42,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       child: const Icon(Icons.search, color: Colors.white),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: AppColors.iconColor),
+                          color: AppColors.mainColor),
                     ),
                   )
                 ],
               ),
             ),
           ),
+          const FoodPageBody()
         ],
       ),
     );
