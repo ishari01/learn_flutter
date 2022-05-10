@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/utils/dimensions.dart';
 
 class BigText extends StatelessWidget {
   Color color;
@@ -11,7 +12,7 @@ class BigText extends StatelessWidget {
       {Key? key,
       this.color = const Color(0xFF332d2b),
       required this.text,
-      this.size = 20,
+      this.size = 0,
       this.overFlow = TextOverflow.ellipsis})
       : super(key: key);
 
@@ -24,7 +25,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontWeight: FontWeight.w400,
-        fontSize: size,
+        fontSize: size == 0 ? Dimensions.font20 : size,
       ),
     );
   }
