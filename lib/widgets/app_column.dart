@@ -41,7 +41,7 @@ class AppColumn extends StatelessWidget {
         SizedBox(height: Dimensions.height20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             IconAndText(
                 icon: Icons.circle_sharp,
                 text: 'Normal',

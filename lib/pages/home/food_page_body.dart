@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:learning_flutter/controllers/popular_product_controller.dart';
 import 'package:learning_flutter/controllers/recommended_product_controller.dart';
 import 'package:learning_flutter/models/products_model.dart';
-import 'package:learning_flutter/pages/food/popular_food_detail.dart';
 import 'package:learning_flutter/routes/route_helper.dart';
 import 'package:learning_flutter/utils/colors.dart';
 import 'package:learning_flutter/utils/dimensions.dart';
@@ -23,8 +22,8 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var _currPageValue = 0.0;
-  double _scaleFactor = 0.8;
-  double _height = Dimensions.pageViewContainer;
+  final double _scaleFactor = 0.8;
+  final double _height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -47,7 +46,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return popularProducts.isLoaded
-              ? Container(
+              ? SizedBox(
                   height: Dimensions.pageView,
                   child: PageView.builder(
                       controller: pageController,
@@ -57,7 +56,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             popularProducts.popularProductList[position]);
                       }),
                 )
-              : CircularProgressIndicator(color: AppColors.mainColor);
+              : const CircularProgressIndicator(color: AppColors.mainColor);
         }),
         GetBuilder<PopularProductController>(builder: (popularProducts) {
           return DotsIndicator(
